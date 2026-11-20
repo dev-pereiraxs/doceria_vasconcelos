@@ -217,16 +217,9 @@
           0 20px 50px rgba(107, 33, 168, 0.22),
           0 0 40px rgba(236, 72, 153, 0.18);
       }
-      .product-card img {
-        width: 100%;
-        height: 260px;
-        object-fit: cover;
-        object-position: center;
-        display: block;
-        transition: transform 0.5s ease;
-      }
-      .product-card:hover img {
-        transform: scale(1.06);
+      /* o .reveal.visible sobrescrevia o hover; esta regra garante o efeito */
+      .product-card.reveal.visible:hover {
+        transform: translateY(-10px);
       }
 
       /* ── Slideshow fade ── */
@@ -393,6 +386,7 @@
           <a href="#home" class="nav-link active">Home</a>
           <a href="#sobre" class="nav-link">Sobre mim</a>
           <a href="#produtos" class="nav-link">Produtos</a>
+          <a href="#sugestoes" class="nav-link">Sugestões</a>
         </div>
 
         <!-- Hamburger mobile -->
@@ -411,6 +405,7 @@
           <a href="#home" class="nav-link text-base py-1">Home</a>
           <a href="#sobre" class="nav-link text-base py-1">Sobre mim</a>
           <a href="#produtos" class="nav-link text-base py-1">Produtos</a>
+          <a href="#sugestoes" class="nav-link text-base py-1">Sugestões</a>
         </div>
       </div>
     </nav>
@@ -658,99 +653,63 @@
         </div>
 
         <!-- Cards de produtos -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-          <!-- Card 1 — Brownie -->
-          <div class="product-card reveal group">
-            <div class="overflow-hidden">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-12 items-stretch">
+          <div class="product-card reveal group flex flex-col h-full">
+            <!-- Foto: proporção fixa 4/5 + enquadramento ajustado ao produto -->
+            <div class="aspect-[4/5] w-full overflow-hidden bg-roxo-suave">
               <img
                 src="img/produto1.jpg"
                 alt="Brownie Recheado de Ninho com Nutella"
-                class="group-hover:scale-105"
+                loading="lazy"
+                class="block w-full h-full object-cover object-[50%_43%] transition-transform duration-500 group-hover:scale-105"
               />
             </div>
-            <div class="p-6">
-              <div class="flex items-center gap-2 mb-1">
-                <span
-                  class="text-xs font-nunito font-bold uppercase tracking-widest text-roxo-medio bg-roxo-suave px-3 py-1 rounded-full"
-                  >Destaque</span
-                >
-              </div>
-              <h3 class="font-playfair font-bold text-xl text-roxo mt-2 mb-2">
-                Brownie Recheado
-              </h3>
-              <p class="font-nunito text-gray-500 text-sm leading-relaxed">
-                Brownie irresistível recheado de Ninho com Nutella. Crocante por
-                fora, cremoso por dentro. 🍫✨
-              </p>
-              <div class="mt-4 flex items-center gap-2">
-                <span class="text-rosa font-bold text-sm"
-                  >🍰 Encomende agora</span
-                >
+            <div class="flex flex-col flex-1 p-6">
+              <span class="self-start text-xs font-nunito font-bold uppercase tracking-widest text-roxo-medio bg-roxo-suave px-3 py-1 rounded-full">Destaque</span>
+              <h3 class="font-playfair font-bold text-xl text-roxo mt-3 mb-2">Brownie Recheado</h3>
+              <p class="font-nunito text-gray-500 text-sm leading-relaxed">Brownie irresistível recheado de Ninho com Nutella. Crocante por fora, cremoso por dentro. 🍫✨</p>
+              <div class="mt-auto pt-4">
+                <span class="text-rosa font-bold text-sm">🍰 Encomende agora</span>
               </div>
             </div>
           </div>
 
-          <!-- Card 2 — Bolo no Pote -->
-          <div class="product-card reveal group" style="transition-delay: 0.1s">
-            <div class="overflow-hidden">
+          <div class="product-card reveal group flex flex-col h-full" style="transition-delay: 0.1s">
+            <!-- Foto: proporção fixa 4/5 + enquadramento ajustado ao produto -->
+            <div class="aspect-[4/5] w-full overflow-hidden bg-roxo-suave">
               <img
                 src="img/produto2.jpg"
                 alt="Bolo no Pote de Brigadeiro"
-                class="group-hover:scale-105"
+                loading="lazy"
+                class="block w-full h-full object-cover object-[50%_62%] transition-transform duration-500 group-hover:scale-105"
               />
             </div>
-            <div class="p-6">
-              <div class="flex items-center gap-2 mb-1">
-                <span
-                  class="text-xs font-nunito font-bold uppercase tracking-widest text-rosa bg-pink-50 px-3 py-1 rounded-full"
-                  >Mais pedido</span
-                >
-              </div>
-              <h3 class="font-playfair font-bold text-xl text-roxo mt-2 mb-2">
-                Bolo no Pote
-              </h3>
-              <p class="font-nunito text-gray-500 text-sm leading-relaxed">
-                Bolo no pote de Brigadeiro e Prestígio. Camadas generosas de
-                sabor para adoçar o seu dia. 🍮
-              </p>
-              <div class="mt-4 flex items-center gap-2">
-                <span class="text-rosa font-bold text-sm"
-                  >🍰 Encomende agora</span
-                >
+            <div class="flex flex-col flex-1 p-6">
+              <span class="self-start text-xs font-nunito font-bold uppercase tracking-widest text-rosa bg-pink-50 px-3 py-1 rounded-full">Mais pedido</span>
+              <h3 class="font-playfair font-bold text-xl text-roxo mt-3 mb-2">Bolo no Pote</h3>
+              <p class="font-nunito text-gray-500 text-sm leading-relaxed">Bolo no pote de Brigadeiro e Prestígio. Camadas generosas de sabor para adoçar o seu dia. 🍮</p>
+              <div class="mt-auto pt-4">
+                <span class="text-rosa font-bold text-sm">🍰 Encomende agora</span>
               </div>
             </div>
           </div>
 
-          <!-- Card 3 — Mix de Sabores -->
-          <div
-            class="product-card reveal group sm:col-span-2 lg:col-span-1"
-            style="transition-delay: 0.2s"
-          >
-            <div class="overflow-hidden">
+          <div class="product-card reveal group flex flex-col h-full sm:col-span-2 sm:max-w-sm sm:mx-auto sm:w-full lg:col-span-1 lg:max-w-none" style="transition-delay: 0.2s">
+            <!-- Foto: proporção fixa 4/5 + enquadramento ajustado ao produto -->
+            <div class="aspect-[4/5] w-full overflow-hidden bg-roxo-suave">
               <img
                 src="img/produto3.jpg"
                 alt="Mix de Sabores"
-                class="group-hover:scale-105"
+                loading="lazy"
+                class="block w-full h-full object-cover object-[50%_52%] transition-transform duration-500 group-hover:scale-105"
               />
             </div>
-            <div class="p-6">
-              <div class="flex items-center gap-2 mb-1">
-                <span
-                  class="text-xs font-nunito font-bold uppercase tracking-widest text-emerald-600 bg-emerald-50 px-3 py-1 rounded-full"
-                  >Especial</span
-                >
-              </div>
-              <h3 class="font-playfair font-bold text-xl text-roxo mt-2 mb-2">
-                Mix de Sabores
-              </h3>
-              <p class="font-nunito text-gray-500 text-sm leading-relaxed">
-                Um mix irresistível de sabores para deixar seu dia ainda mais
-                especial. Morangos, uvas e muito mais! 🍓🍇
-              </p>
-              <div class="mt-4 flex items-center gap-2">
-                <span class="text-rosa font-bold text-sm"
-                  >🍰 Encomende agora</span
-                >
+            <div class="flex flex-col flex-1 p-6">
+              <span class="self-start text-xs font-nunito font-bold uppercase tracking-widest text-emerald-600 bg-emerald-50 px-3 py-1 rounded-full">Especial</span>
+              <h3 class="font-playfair font-bold text-xl text-roxo mt-3 mb-2">Mix de Sabores</h3>
+              <p class="font-nunito text-gray-500 text-sm leading-relaxed">Um mix irresistível de sabores para deixar seu dia ainda mais especial. Morangos, uvas e muito mais! 🍓🍇</p>
+              <div class="mt-auto pt-4">
+                <span class="text-rosa font-bold text-sm">🍰 Encomende agora</span>
               </div>
             </div>
           </div>
@@ -769,6 +728,79 @@
             Veja todos os produtos no Instagram da doceria 🍬
           </p>
         </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+     SEÇÃO SUGESTÕES
+════════════════════════════════════════════ -->
+    <section id="sugestoes" class="sobre-bg py-20 px-6">
+      <div class="max-w-2xl mx-auto">
+        <div class="text-center mb-10 reveal">
+          <p class="text-roxo-medio font-nunito font-bold uppercase tracking-widest text-sm mb-2">
+            Sua opinião importa
+          </p>
+          <h2 class="section-title text-4xl md:text-5xl text-roxo">Sugira um Doce</h2>
+          <div class="w-16 h-1 mx-auto mt-4 rounded-full" style="background: linear-gradient(90deg, #7c3aed, #ec4899)"></div>
+          <p class="font-nunito text-gray-600 mt-5 leading-relaxed">
+            Tem um sabor ou doce que gostaria de ver por aqui? Conte pra Pietra! 💜
+          </p>
+        </div>
+
+        <form
+          id="form-sugestao"
+          novalidate
+          class="reveal bg-white/80 backdrop-blur rounded-2xl border border-purple-200/60 shadow-xl shadow-purple-900/10 p-6 md:p-8 space-y-5"
+        >
+          <!-- Honeypot anti-spam (escondido) -->
+          <input type="text" name="_honey" tabindex="-1" autocomplete="off" class="hidden" />
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <div>
+              <label for="nome" class="block font-nunito font-bold text-sm text-roxo mb-1">
+                Seu nome <span class="text-gray-400 font-normal">(opcional)</span>
+              </label>
+              <input
+                id="nome" name="nome" type="text" maxlength="80" placeholder="Como posso te chamar?"
+                class="w-full rounded-xl border border-purple-200 bg-white px-4 py-3 font-nunito text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-roxo-claro focus:border-roxo-medio transition"
+              />
+            </div>
+            <div>
+              <label for="contato" class="block font-nunito font-bold text-sm text-roxo mb-1">
+                E-mail ou WhatsApp <span class="text-gray-400 font-normal">(opcional)</span>
+              </label>
+              <input
+                id="contato" name="contato" type="text" maxlength="100" placeholder="Para eu te avisar se virar novidade"
+                class="w-full rounded-xl border border-purple-200 bg-white px-4 py-3 font-nunito text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-roxo-claro focus:border-roxo-medio transition"
+              />
+            </div>
+          </div>
+
+          <div>
+            <label for="sugestao" class="block font-nunito font-bold text-sm text-roxo mb-1">
+              Sua sugestão de doce <span class="text-rosa">*</span>
+            </label>
+            <textarea
+              id="sugestao" name="sugestao" rows="5" maxlength="600" required
+              placeholder="Ex.: Brownie de Ninho com morango, bolo no pote de maracujá, trufas de churros..."
+              class="w-full resize-none rounded-xl border border-purple-200 bg-white px-4 py-3 font-nunito text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-roxo-claro focus:border-roxo-medio transition"
+            ></textarea>
+            <p class="text-right text-xs text-gray-400 font-nunito mt-1">
+              <span id="contador">0</span>/600
+            </p>
+          </div>
+
+          <button
+            id="btn-enviar" type="submit"
+            class="btn-main w-full flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed"
+          >
+            <i class="fas fa-paper-plane"></i>
+            <span id="btn-texto">Enviar sugestão</span>
+          </button>
+
+          <!-- Mensagem de status -->
+          <p id="form-status" role="status" aria-live="polite" class="hidden rounded-xl px-4 py-3 text-sm font-nunito font-semibold text-center"></p>
+        </form>
       </div>
     </section>
 
@@ -863,6 +895,11 @@
               >Produtos</a
             >
             <a
+              href="#sugestoes"
+              class="text-purple-200 hover:text-white font-nunito text-sm transition"
+              >Sugestões</a
+            >
+            <a
               href="https://www.instagram.com/azevedo_piietra/"
               target="_blank"
               class="text-purple-200 hover:text-white font-nunito text-sm transition"
@@ -885,7 +922,7 @@
           >
             Site desenvolvido por
             <a
-              href="https://github.com/dev-pereiraxs"
+              href="https://dev-pereiraxs.github.io/portifolio-de-andre/"
               target="_blank"
               class="text-pink-300 font-bold hover:text-white transition"
             >
@@ -995,6 +1032,83 @@
           if (target)
             target.scrollIntoView({ behavior: "smooth", block: "start" });
         });
+      });
+
+      /* ═══════════════════════════════════════════
+         CAIXA DE SUGESTÕES → E-MAIL
+         Envio via FormSubmit (não precisa de servidor).
+         👉 Coloque o e-mail da Pietra abaixo quando tiver:
+         ═══════════════════════════════════════════ */
+      const EMAIL_DESTINO = ""; // ex.: "pietra@gmail.com"
+
+      const form = document.getElementById("form-sugestao");
+      const statusEl = document.getElementById("form-status");
+      const btnEnviar = document.getElementById("btn-enviar");
+      const btnTexto = document.getElementById("btn-texto");
+      const textarea = document.getElementById("sugestao");
+      const contador = document.getElementById("contador");
+
+      textarea.addEventListener("input", () => {
+        contador.textContent = textarea.value.length;
+      });
+
+      function mostrarStatus(tipo, texto) {
+        statusEl.textContent = texto;
+        statusEl.className =
+          "rounded-xl px-4 py-3 text-sm font-nunito font-semibold text-center " +
+          (tipo === "ok"
+            ? "bg-emerald-50 text-emerald-700 border border-emerald-200"
+            : "bg-rose-50 text-rose-600 border border-rose-200");
+      }
+
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        // anti-spam: robôs preenchem o campo escondido
+        if (form.elements["_honey"].value) return;
+
+        const sugestao = textarea.value.trim();
+        if (sugestao.length < 3) {
+          mostrarStatus("erro", "Escreva sua sugestão de doce antes de enviar 🍰");
+          textarea.focus();
+          return;
+        }
+
+        if (!EMAIL_DESTINO) {
+          console.warn("Defina EMAIL_DESTINO no script para ativar o envio.");
+          mostrarStatus("erro", "O envio de sugestões ainda não está ativo. Volte em breve! 💜");
+          return;
+        }
+
+        btnEnviar.disabled = true;
+        btnTexto.textContent = "Enviando...";
+
+        try {
+          const res = await fetch(
+            `https://formsubmit.co/ajax/${encodeURIComponent(EMAIL_DESTINO)}`,
+            {
+              method: "POST",
+              headers: { "Content-Type": "application/json", Accept: "application/json" },
+              body: JSON.stringify({
+                _subject: "Nova sugestão de doce – Doceria Vasconcelos",
+                _template: "table",
+                _captcha: "false",
+                Nome: form.elements["nome"].value.trim() || "Não informado",
+                Contato: form.elements["contato"].value.trim() || "Não informado",
+                Sugestão: sugestao,
+              }),
+            },
+          );
+          if (!res.ok) throw new Error("Falha no envio");
+          form.reset();
+          contador.textContent = "0";
+          mostrarStatus("ok", "Sugestão enviada! Obrigada pela ideia 💜");
+        } catch (err) {
+          mostrarStatus("erro", "Não foi possível enviar agora. Tente novamente em instantes.");
+        } finally {
+          btnEnviar.disabled = false;
+          btnTexto.textContent = "Enviar sugestão";
+        }
       });
     </script>
   </body>
